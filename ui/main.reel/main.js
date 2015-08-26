@@ -1,4 +1,3 @@
-// FOO
 var Component = require('montage/ui/component').Component;
 var RangeController = require('montage/core/range-controller').RangeController;
 var Todo = require('core/todo').Todo;
