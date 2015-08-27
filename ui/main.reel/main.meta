@@ -1,0 +1,75 @@
+{
+  "blueprint_component_reference": {
+    "prototype": "montage/core/meta/blueprint-reference",
+    "properties": {
+      "valueReference": {
+        "blueprintName": "Component",
+        "blueprintModule": {
+          "%": "montage/ui/component.meta"
+        }
+      }
+    }
+  },
+  "blueprint_unnamed_todoListController": {
+    "prototype": "montage/core/meta/property-blueprint",
+    "properties": {
+      "name": "todoListController",
+      "blueprint": {"@": "root"}
+    }
+  },
+  "blueprint_unnamed_allCompleted": {
+    "prototype": "montage/core/meta/property-blueprint",
+    "properties": {
+      "name": "allCompleted",
+      "blueprint": {"@": "root"}
+    }
+  },
+  "blueprint_unnamed_todos": {
+    "prototype": "montage/core/meta/property-blueprint",
+    "properties": {
+      "name": "todos",
+      "blueprint": {"@": "root"}
+    }
+  },
+  "blueprint_unnamed_todosLeft": {
+    "prototype": "montage/core/meta/property-blueprint",
+    "properties": {
+      "name": "todosLeft",
+      "blueprint": {"@": "root"}
+    }
+  },
+  "blueprint_unnamed_todosCompleted": {
+    "prototype": "montage/core/meta/property-blueprint",
+    "properties": {
+      "name": "todosCompleted",
+      "blueprint": {"@": "root"}
+    }
+  },
+  "root": {
+    "prototype": "montage/core/meta/module-blueprint",
+    "properties": {
+      "name": null,
+      "parent": {"@": "blueprint_component_reference"},
+      "propertyBlueprints": [
+        {"@": "blueprint_unnamed_todoListController"},
+        {"@": "blueprint_unnamed_allCompleted"},
+        {"@": "blueprint_unnamed_todos"},
+        {"@": "blueprint_unnamed_todosLeft"},
+        {"@": "blueprint_unnamed_todosCompleted"}
+      ],
+      "propertyBlueprintGroups": {
+        "Main": [
+          {"@": "blueprint_unnamed_todoListController"},
+          {"@": "blueprint_unnamed_allCompleted"},
+          {"@": "blueprint_unnamed_todos"},
+          {"@": "blueprint_unnamed_todosLeft"},
+          {"@": "blueprint_unnamed_todosCompleted"}
+        ]
+      },
+      "module": {
+        "%": "ui/main.reel"
+      },
+      "exportName": "Main"
+    }
+  }
+}
