@@ -1,74 +1,71 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>TodoView</title>
-
-        <script type="text/montage-serialization">
-        {
-            "owner": {
-                "properties": {
-                    "element": {"#": "todoView"},
-                    "editInput": {"@": "editInput"}
-                }
+<head>
+    <meta charset="utf-8">
+    <title>
+        TodoView
+    </title>
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "todoView"},
+                "editInput": {"@": "editInput"}
+            }
+        },
+        "destroyButton": {
+            "prototype": "native/ui/button.reel",
+            "properties": {
+                "element": {"#": "destroyButton"}
             },
-
-            "todoTitle": {
-                "prototype": "montage/ui/text.reel",
-                "properties": {
-                    "element": {"#": "todoTitle"}
-                },
-                "bindings": {
-                    "value": {"<-": "@owner.todo.title"}
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
                 }
+            ]
+        },
+        "editInput": {
+            "prototype": "native/ui/input-text.reel",
+            "properties": {
+                "element": {"#": "edit-input"}
             },
-
-            "todoCompletedCheckbox": {
-                "prototype": "native/ui/input-checkbox.reel",
-                "properties": {
-                    "element": {"#": "todoCompletedCheckbox"}
-                },
-                "bindings": {
-                    "checked": {"<->": "@owner.todo.completed"}
-                }
+            "bindings": {
+                "value": {"<-": "@owner.todo.title"}
+            }
+        },
+        "todoCompletedCheckbox": {
+            "prototype": "native/ui/input-checkbox.reel",
+            "properties": {
+                "element": {"#": "todoCompletedCheckbox"}
             },
-
-            "destroyButton": {
-                "prototype": "native/ui/button.reel",
-                "properties": {
-                    "element": {"#": "destroyButton"}
-                },
-                "listeners": [
-                    {
-                        "type": "action",
-                        "listener": {"@": "owner"},
-                        "capture": true
-                    }
-                ]
+            "bindings": {
+                "checked": {"<->": "@owner.todo.completed"}
+            }
+        },
+        "todoTitle": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {"#": "todoTitle"}
             },
-
-            "editInput": {
-                "prototype": "native/ui/input-text.reel",
-                "properties": {
-                    "element": {"#": "edit-input"}
-                },
-                "bindings": {
-                    "value": {"<-": "@owner.todo.title"}
-                }
+            "bindings": {
+                "classList.has('foo')": {"<-": "@owner.foo"},
+                "value": {"<-": "@owner.todo.title"}
             }
         }
-        </script>
-    </head>
-    <body>
-        <li data-montage-id="todoView">
-            <div class="view">
-                <input data-montage-id="todoCompletedCheckbox" class="toggle" type="checkbox">
-                <label data-montage-id="todoTitle"></label>
-                <button data-montage-id="destroyButton" class="destroy"></button>
-            </div>
-            <form data-montage-id="edit">
-                <input data-montage-id="edit-input" class="edit" value="Rule the web">
-            </form>
-        </li>
-    </body>
+    }
+    </script>
+</head>
+<body>
+    <li data-montage-id="todoView">
+        <div class="view">
+            <input data-montage-id="todoCompletedCheckbox" class="toggle" type="checkbox">
+            <label data-montage-id="todoTitle"></label>
+            <button data-montage-id="destroyButton" class="destroy"></button>
+        </div>
+        <form data-montage-id="edit">
+            <input data-montage-id="edit-input" class="edit" value="Rule the web">
+        </form>
+    </li>
+</body>
 </html>
