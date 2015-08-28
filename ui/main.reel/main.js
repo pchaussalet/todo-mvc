@@ -18,6 +18,10 @@ exports.Main = Component.specialize({
     todoListController: {
         value: null
     },
+    
+    foo: {
+        value: false
+    },
 
     constructor: {
         value: function Main() {
@@ -81,6 +85,12 @@ exports.Main = Component.specialize({
                 this.addEventListener('destroyTodo', this, true);
 
                 window.addEventListener('beforeunload', this, true);
+                
+                var self = this;
+                setTimeout(function() {
+                    console.log('foo');
+                    self.foo = true;
+                }, 10000);
             }
         }
     },
