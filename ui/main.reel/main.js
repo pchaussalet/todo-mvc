@@ -20,7 +20,7 @@ exports.Main = Component.specialize({
     },
     
     foo: {
-        value: false
+        value: true
     },
 
     constructor: {
@@ -85,13 +85,7 @@ exports.Main = Component.specialize({
                 this.addEventListener('destroyTodo', this, true);
 
                 window.addEventListener('beforeunload', this, true);
-                
-                var self = this;
-                setTimeout(function() {
-                    console.log('foo');
-                    self.foo = true;
-                }, 10000);
-            }
+                            }
         }
     },
 
